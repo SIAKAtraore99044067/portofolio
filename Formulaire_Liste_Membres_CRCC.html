@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Liste des Membres CRCC</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="BDD_RPV_GRN_2025.css"/>
+  <style>
+    .section {
+      margin: 20px auto;
+      width: 90%;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 15px;
+    }
+
+    .section h2 {
+      cursor: pointer;
+      background-color: #009688;
+      color: white;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .section-content {
+      display: none;
+      margin-top: 10px;
+    }
+
+    .section.active .section-content {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <button><a href="index.html">Accueil</a></button>
+  </nav>
+   <header class="b1">
+  
+   </header>
+     
+  <h2 style="text-align:center;">SUR LE THÈME : WXXXXXXXWW</h2>
+
+  <!-- Section : Ajouter un enregistrement -->
+  <div class="section" id="ajoutSection">
+    <h2 onclick="toggleSection('ajoutSection')">+ Ajouter un enregistrement</h2>
+    <div class="section-content">
+       <form>
+      <label for="nom">1. Nom</label>
+      <input type="text" name="nom" id="nom" placeholder="Entrez le nom complet">
+
+      <label for="fonction">2. Fonction</label>
+      <input type="text" name="fonction" id="fonction" placeholder="Entrez la fonction">
+
+      <label for="contact">3. Contact</label>
+      <input type="text" name="contact" id="contact" placeholder="Entrez le numéro de téléphone">
+
+      <label for="commune">4. Commune</label>
+      <input type="text" name="commune" id="commune" placeholder="Entrez la commune">
+
+      <input type="submit" value="Enregistrer">
+    </form>
+    </div>
+  </div>
+
+  <!-- Section : Participants enregistrés -->
+  <div class="section" id="listeSection">
+    <h2 onclick="toggleSection('listeSection')">+ Voir les Membres déjà enregistrés</h2>
+    <div class="section-content">
+      <table>
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Fonction</th>
+          <th>Contact</th>
+          <th>Commune</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Amadou Coulibaly</td>
+          <td>Président CRCC</td>
+          <td>70 00 00 00</td>
+          <td>Dioula</td>
+        </tr>
+        <tr>
+          <td>Fatoumata Sangaré</td>
+          <td>Secrétaire</td>
+          <td>76 00 00 00</td>
+          <td>Bougoula</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+<a href="#" class="scroll-top"><i class="fas fa-chevron-up"></i></a>
+
+  <!-- Pied de page -->
+  <footer class="f1">
+    <div class="e1">
+      © Siaka B TRAORE, Suivi-Évaluateur des Projets/Programmes, Bamako - Mali, 2025
+    </div>
+  </footer>
+  
+  
+  
+  <script>
+    function toggleSection(id) {
+      const section = document.getElementById(id);
+      section.classList.toggle('active');
+    }
+  </script>
+
+  
+  <script>
+  // Scroll to top button
+  const scrollBtn = document.querySelector('.scroll-top');
+  window.addEventListener('scroll', () => {
+    scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+  });
+</script>
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

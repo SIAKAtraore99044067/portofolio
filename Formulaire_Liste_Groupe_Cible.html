@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Groupes Cibles</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="BDD_RPV_GRN_2025.css">
+  <style>
+    .section {
+      margin: 20px auto;
+      width: 90%;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 15px;
+    }
+
+    .section h2 {
+      cursor: pointer;
+      background-color: #009688;
+      color: white;
+      padding: 10px;
+      border-radius: 8px;
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .section-content {
+      display: none;
+      margin-top: 15px;
+    }
+
+    .section.active .section-content {
+      display: block;
+    }
+
+    form input[type="text"],
+    form input[type="submit"] {
+      width: 100%;
+      margin: 8px 0;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #009688;
+      color: white;
+    }
+
+    nav {
+      margin-bottom: 20px;
+    }
+
+    nav button a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .autres-infos {
+      margin: 20px auto;
+      width: 90%;
+      padding: 10px;
+    }
+
+    .autres-infos label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    .autres-infos input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <button><a href="index.html">Accueil</a></button>
+  </nav>
+<header class="b1">
+  <h1 style="text-align:center;">LES GROUPES CIBLES DU PROJET RPV-GRN</h1>
+</header>
+  <!-- Section 1 : Ajout d'un groupe cible -->
+  <div class="section" id="ajoutCible">
+    <h2 onclick="toggleSection('ajoutCible')">+ Ajouter un groupe cible</h2>
+    <div class="section-content">
+      <form onsubmit="event.preventDefault(); /* ajouter logique JS ici */">
+        <label for="cible">Nom du Nouveau Cible :</label>
+        <input type="text" name="cible" placeholder="Ex: Femmes vulnérables" required>
+
+        <label for="type">Type :</label>
+        <input type="text" name="type" placeholder="Ex: Groupe agricole" required>
+
+        <label for="localite">Localité :</label>
+        <input type="text" name="localite" placeholder="Ex: Kolondiéba" required>
+
+        <label for="observations">Observations :</label>
+        <input type="text" name="observations" placeholder="Remarques supplémentaires">
+
+        <input type="submit" value="Valider">
+      </form>
+    </div>
+  </div>
+
+  <!-- Section 2 : Liste des groupes cibles enregistrés -->
+  <div class="section" id="listeCibles">
+    <h2 onclick="toggleSection('listeCibles')">+ Voir les groupes cibles enregistrés</h2>
+    <div class="section-content">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nom du Cible</th>
+            <th>Type</th>
+            <th>Localité</th>
+            <th>Observations</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Femmes vulnérables</td>
+            <td>Groupe agricole</td>
+            <td>Kolondiéba</td>
+            <td>Remarques diverses</td>
+            <td><button>Modifier</button> <button>Supprimer</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<a href="#" class="scroll-top"><i class="fas fa-chevron-up"></i></a>
+
+  <!-- Pied de page -->
+  <footer class="f1">
+    <div class="e1">
+      © Siaka B TRAORE, Suivi-Évaluateur des Projets/Programmes, Bamako - Mali, 2025
+    </div>
+  </footer>
+
+  <script>
+    function toggleSection(id) {
+      const section = document.getElementById(id);
+      section.classList.toggle('active');
+    }
+  </script>
+
+   <script>
+  // Scroll to top button
+  const scrollBtn = document.querySelector('.scroll-top');
+  window.addEventListener('scroll', () => {
+    scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+  });
+</script>
+  
+</body>
+</html>

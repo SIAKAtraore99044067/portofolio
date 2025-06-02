@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Liste_Participants_formation/sensibilisation</title>
+  
+  
+  <link rel="stylesheet" href="BDD_RPV_GRN_2025.css"/>
+  <style>
+    .section {
+      margin: 20px auto;
+      width: 90%;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 15px;
+    }
+
+    .section h2 {
+      cursor: pointer;
+      background-color: #009688;
+      color: white;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .section-content {
+      display: none;
+      margin-top: 10px;
+    }
+
+    .section.active .section-content {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <button><a href="index.html">Accueil</a></button>
+  </nav>
+   <header class="b1">
+  <h1 style="text-align:center;">Liste des Participants au atelier de "XXX" sur "Volet"</h1>
+   </header>
+     
+  <h2 style="text-align:center;">SUR LE THÈME : WXXXXXXXWW</h2>
+
+  <!-- Section : Ajouter un enregistrement -->
+  <div class="section" id="ajoutSection">
+    <h2 onclick="toggleSection('ajoutSection')">+ Ajouter un enregistrement</h2>
+    <div class="section-content">
+      <form>
+        <label>Nom :</label>
+        <input type="text" placeholder="Entrer le nom" required><br>
+
+        <label>Âge :</label>
+        <input type="text" placeholder="Entrer l'âge" required><br>
+
+        <label>Sexe :</label>
+        <input type="text" placeholder="Entrer le sexe" required><br>
+
+        <label>Localité :</label>
+        <input type="text" placeholder="Entrer la localité" required><br>
+
+        <input type="submit" value="Enregistrer">
+      </form>
+    </div>
+  </div>
+
+  <!-- Section : Participants enregistrés -->
+  <div class="section" id="listeSection">
+    <h2 onclick="toggleSection('listeSection')">+ Voir les participants enregistrés</h2>
+    <div class="section-content">
+      <table>
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Âge</th>
+            <th>Sexe</th>
+            <th>Localité</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Exemple Nom</td>
+            <td>35</td>
+            <td>F</td>
+            <td>Koutiala</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  
+  <footer>
+    <div class="f1">
+      <div class="e1">
+        © Siaka B TRAORE, Suivi-Evaluateur des Projets/Programmes, Bamako-Mali, Année 2025
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    function toggleSection(id) {
+      const section = document.getElementById(id);
+      section.classList.toggle('active');
+    }
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

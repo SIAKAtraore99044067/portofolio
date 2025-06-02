@@ -1,0 +1,219 @@
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Profil</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+        }
+
+        /* Message Styles */
+        .message {
+            font-size: 16px;
+            margin: 20px 0;
+            border-radius: 5px;
+            padding: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .alert-success {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .alert-error {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        /* Profile Container */
+        .profil {
+            background-color: #f2f2f2;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .profil h1 {
+            font-size: 30px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .profil p {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        /* Photo Profile */
+        .photo {
+            background-color: #d9bbcf;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .photo img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .photo img:hover {
+            transform: scale(1.05); /* Légère agrandissement au survol */
+        }
+
+        /* Logout Section */
+        .deconnect {
+            background-color: #58f11c;
+            font-size: 18px;
+            padding: 10px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        /* Navigation Links */
+        .a1 {
+            margin-top: 30px;
+        }
+
+     /* Navigation Links */
+.nav-links {
+    list-style-type: decimal; /* Numérotation */
+    padding-left: 20px; /* Décalage des numéros */
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.nav-links li {
+    margin-bottom: 10px; /* Espacement entre les éléments de la liste */
+}
+
+.nav-links a {
+    font-size: 18px;
+    color: #2980b9;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    display: block; /* Permet d'étendre l'élément sur toute la largeur */
+    transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+    background-color: #2980b9;
+    color: white;
+}
+
+
+
+        /* Footer Styles */
+        footer {
+            background-color: #34495e;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            margin-top: 30px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Affichage du message de succès ou d'erreur -->
+
+
+<!-- Affichage des informations de l'utilisateur -->
+<div class="container profil">
+    <h1>Bienvenue, Chers Visiteurs</h1>
+    <p><strong>Votre profil :</strong> <?php echo htmlspecialchars($user['profile']); ?></p>
+    <p><strong>Votre email :</strong> <?php echo htmlspecialchars($user['email']); ?></p>
+    <p><strong>Votre département :</strong> <?php echo htmlspecialchars($user['departement']); ?></p>
+
+    <!-- Affichage de la photo de profil -->
+    <div class="photo">
+        <p><strong>Votre photo :</strong><br>
+        <?php if (!empty($user['photo'])): ?>
+            <img src="ae.jpeg" alt="Photo de profil">
+        <?php else: ?>
+            <p>Aucune photo de profil définie.</p>
+        <?php endif; ?>
+    </div>
+
+    <!-- Liens pour modifier le profil -->
+    <div class="list-links">
+        <ul>
+            <li><a href="">Modifier mon profil</a></li>
+            <li><a href="">Changer photo du profil</a></li>
+            <li><a href="Siaka_Portofolio.html" style="color:rgb(229, 235, 229); background-color: rgb(12, 12, 12); padding: 10px;">Retour dans Mon Portofolio</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- Déconnexion -->
+<div class="deconnect">
+    <p><strong>Statut de la connexion : <i>en ligne</i></strong> 
+        <?php echo (isset($_SESSION['username']) && isset($_SESSION['user_id'])) ? "Connecté" : "Non connecté"; ?>
+    </p>
+    <?php if (isset($_SESSION['username'])): ?>
+        <a href="" class="btn btn-primary">Déconnexion</a>
+    <?php endif; ?>
+</div>
+
+<!-- Liens supplémentaires pour la navigation -->
+<div class="a1">
+    <ol class="nav-links">
+        <li><a href="">Page d'accueil</a></li>
+        <li><a href="">Espace Suivi-évaluation</a></li>
+        <li><a href="#">Enquête</a></li>
+        <li><a href="#">Recrutement</a></li>
+        <li><a href="">Actualité du service</a></li>
+        <li><a href="">Publication des activités</a></li>
+        <li><a href="">Liste des agents ou utilisateurs inscrits sur le site</a></li>
+        <li><a href="" >Discussion privée</a></li>
+        <li><a href="" >Bibliothèque du Service</a></li>
+        <li><a href="">Diffusion des résultats</a></li>
+        <li><a href="" >Archivage des documents du Service</a></li>
+        <li><a href="">Cas de succès</a></li>
+    </ol>
+</div>
+
+
+<!-- Footer -->
+<footer>
+    <p> © Siaka B TRAORE, Suivi-Évaluateur des Projets/Programmes, Bamako - Mali, 2025</p>
+</footer>
+
+</body>
+</html>

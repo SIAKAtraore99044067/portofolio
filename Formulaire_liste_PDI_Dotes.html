@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Liste_PDI_dote_aide_alimentaire</title>
+  
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="BDD_RPV_GRN_2025.css">
+  <style>
+    .section {
+      margin: 20px auto;
+      width: 90%;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 15px;
+    }
+
+    .section h2 {
+      cursor: pointer;
+      background-color: #009688;
+      color: white;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .section-content {
+      display: none;
+      margin-top: 10px;
+    }
+
+    .section.active .section-content {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Bouton Accueil -->
+  <nav>
+    <button><a href="index.html">Accueil</a></button>
+  </nav>
+
+  <!-- Titre principal -->
+  <header class="b1">
+    <h1 style="text-align:center;">Liste des PDI dotés en aide alimentaire</h1>
+  </header>
+
+  <!-- Section : Ajouter un enregistrement -->
+  <div class="section" id="ajoutSection">
+    <h2 onclick="toggleSection('ajoutSection')">+ Ajouter un enregistrement</h2>
+    <div class="section-content">
+      <form id="dataForm" onsubmit="ajouterDonnee(event)">
+        <label for="nom">Nom complet</label>
+        <input type="text" id="nom" placeholder="Entrez le nom" required><br>
+
+        <label for="sexe">Sexe</label>
+        <input type="text" id="sexe" placeholder="Masculin / Féminin" required><br>
+
+        <label for="age">Âge</label>
+        <input type="text" id="age" placeholder="Ex. : 35" required><br>
+
+        <label for="aide">Type d’aide</label>
+        <input type="text" id="aide" placeholder="Riz, Huile..." required><br>
+
+        <input type="submit" value="Enregistrer">
+      </form>
+    </div>
+  </div>
+
+  <!-- Section : Liste des enregistrements -->
+  <div class="section" id="listeSection">
+    <h2 onclick="toggleSection('listeSection')">+ Voir les listes des participants enregistrés :</h2>
+    <div class="section-content">
+      <table id="liste">
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Sexe</th>
+            <th>Âge</th>
+            <th>Aide reçue</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Données ajoutées dynamiquement ici -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+<a href="#" class="scroll-top"><i class="fas fa-chevron-up"></i></a>
+
+  <!-- Footer -->
+  <footer>
+    <div class="f1" >
+      © Siaka B TRAORE, Suivi-Evaluateur des Projets/Programmes, Bamako-Mali, Année 2025
+    </div>
+  </footer>
+
+  <!-- Script pour le toggle et ajout dynamique -->
+  <script>
+    function toggleSection(id) {
+      const section = document.getElementById(id);
+      section.classList.toggle('active');
+    }
+
+    function ajouterDonnee(event) {
+      event.preventDefault();
+      const nom = document.getElementById("nom").value;
+      const sexe = document.getElementById("sexe").value;
+      const age = document.getElementById("age").value;
+      const aide = document.getElementById("aide").value;
+
+      const table = document.getElementById("liste").querySelector("tbody");
+      const ligne = document.createElement("tr");
+      ligne.innerHTML = `
+        <td>${nom}</td>
+        <td>${sexe}</td>
+        <td>${age}</td>
+        <td>${aide}</td>
+      `;
+      table.appendChild(ligne);
+      document.getElementById("dataForm").reset();
+    }
+  </script>
+
+   <script>
+  // Scroll to top button
+  const scrollBtn = document.querySelector('.scroll-top');
+  window.addEventListener('scroll', () => {
+    scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+  });
+</script>
+  
+</body>
+</html>
