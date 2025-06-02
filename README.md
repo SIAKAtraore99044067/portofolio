@@ -5,6 +5,8 @@ Ce dépôt contient un site HTML/CSS pour présenter mes compétences :
 - Analyse de données (SPSS, Power BI, Excel)
 - Formulaires en ligne
 - CV professionnel et profils freelances
+- Des exemple de stockage de bage de données
+- Site professionnel
 
 ## Contenu
 - `index.html` : Page d’accueil
