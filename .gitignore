@@ -1,0 +1,28 @@
+# Ne pas publier ces fichiers
+
+# Fichiers de configuration
+.env
+config.php
+db_config.php
+
+# Répertoires de log ou temporaires
+logs/
+tmp/
+cache/
+
+# Environnement local
+htdocs/
+vendor/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# Autres fichiers personnels
+*.xlsx
+*.xls
+*.csv
+jout du fichier .gitignore
